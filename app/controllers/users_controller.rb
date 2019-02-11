@@ -9,6 +9,7 @@ before_action :admin_user, only: :destroy
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
 
   def new
